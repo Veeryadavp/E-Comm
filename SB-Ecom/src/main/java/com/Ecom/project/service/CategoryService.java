@@ -8,5 +8,5 @@ public interface CategoryService
 {
 List<Category> getAllCategories();
 public void createCategory(Category category);
-public String deleteCategory(Long categoryI);
+public String deleteCategory(Long categoryID);
 }
