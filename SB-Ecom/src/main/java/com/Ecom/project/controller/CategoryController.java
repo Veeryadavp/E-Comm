@@ -2,7 +2,10 @@ package com.Ecom.project.controller;
 
 
 import com.Ecom.project.model.Category;
+import com.Ecom.project.service.CategoryService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
@@ -11,11 +14,27 @@ import java.util.List;
 @RestController
 public class CategoryController
 {
+    //Here the dependencies being injected in the controller ,CategoryService is an interface it is not marked as a service.instead -
+    //its implementation is marked as a service i.e. "CategoryServiceImpl" ,so during run time a type of category service is being injected over here.
+    //below we are using constructor injection (or) we can make use of field injection as well just mention @Autowired above the field.
+   private CategoryService categoryService;
 
-    private List<Category> categories=new ArrayList<Category>();
+
+   public CategoryController(CategoryService categoryService)
+   {
+       this.categoryService=categoryService;
+   }
+
     @GetMapping("/api/public/categories")
     public List<Category> getAllCategories()
     {
-        return categories;
+        return categoryService.getAllCategories();
+    }
+
+    @PostMapping ("/api/public/categories")
+    public String createCatagory(@RequestBody Category category)
+    {
+        categoryService.createCategory(category);
+        return " Category created successfully.";
     }
 }
