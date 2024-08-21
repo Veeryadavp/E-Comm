@@ -2,7 +2,7 @@ package com.Ecom.project.model;
 
 public class Category
 {
-    private long categoryID;
+    private Long categoryID;
     private String categoryName;
 
     public Category(long categoryID,String categoryName)
@@ -11,7 +11,7 @@ public class Category
         this.categoryName=categoryName;
     }
 
-    public long getCategoryID() {
+    public Long getCategoryID() {
         return categoryID;
     }
 
