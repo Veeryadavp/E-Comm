@@ -49,7 +49,7 @@ public class CategoryServiceImpl implements CategoryService
                       .orElseThrow(()->new ResponseStatusException(HttpStatus.NOT_FOUND, "response not found"));
 
         categories.remove(category);
-        return "Category with categoryID: "+categoryID+" deleted succesfully";
+        return "Category with categoryID: "+categoryID+" deleted successfully";
     }
 
     @Override
@@ -58,6 +58,7 @@ public class CategoryServiceImpl implements CategoryService
         Optional<Category> optionalCategory=categories.stream()
                 .filter(C -> C.getCategoryID().equals(categoryID))
                 .findFirst();
+
         if(optionalCategory.isPresent())
         {
             Category existingCategory=optionalCategory.get();
@@ -65,7 +66,7 @@ public class CategoryServiceImpl implements CategoryService
             return existingCategory;
         }
         else {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND,"Category not found.");
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Category not found");
         }
 
     }

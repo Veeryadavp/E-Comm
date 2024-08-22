@@ -5,7 +5,7 @@ public class Category
     private Long categoryID;
     private String categoryName;
 
-    public Category(long categoryID,String categoryName)
+    public Category(Long categoryID,String categoryName)
     {
         this.categoryID=categoryID;
         this.categoryName=categoryName;
@@ -15,7 +15,7 @@ public class Category
         return categoryID;
     }
 
-    public void setCategoryID(long categoryID) {
+    public void setCategoryID(Long categoryID) {
         this.categoryID = categoryID;
     }
 
@@ -23,7 +23,8 @@ public class Category
         return categoryName;
     }
 
-    public void setCategoryName(String categoryName) {
+    public void setCategoryName(String categoryName)
+    {
         this.categoryName = categoryName;
     }
 }
