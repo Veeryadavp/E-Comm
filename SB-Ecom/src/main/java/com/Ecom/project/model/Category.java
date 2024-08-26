@@ -18,7 +18,10 @@ public class Category
     private Long categoryID;
     private String categoryName;
 
-    public Category(Long categoryID,String categoryName)
+    public Category() {
+    }
+
+    public Category(Long categoryID, String categoryName)
     {
         this.categoryID=categoryID;
         this.categoryName=categoryName;
