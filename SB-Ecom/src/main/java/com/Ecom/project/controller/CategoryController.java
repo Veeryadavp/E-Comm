@@ -5,12 +5,13 @@ import com.Ecom.project.model.Category;
 import com.Ecom.project.service.CategoryService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Controller
 @RestController
 //@RequestMapping("/api")
 public class CategoryController
@@ -46,7 +47,8 @@ public class CategoryController
 
     @DeleteMapping("/api/admin/categories/{categoryID}")
     //@RequestMapping(value="/admin/categories/{categoryID}",method = RequestMethod.DELETE)
-    public ResponseEntity<String> deleteCategory(@PathVariable Long categoryID) {
+    public ResponseEntity<String> deleteCategory(@PathVariable Long categoryID)
+    {
         try {
             String Status = categoryService.deleteCategory(categoryID);
             return new ResponseEntity<>(Status, HttpStatus.OK);
